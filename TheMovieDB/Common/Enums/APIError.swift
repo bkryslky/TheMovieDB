@@ -13,5 +13,4 @@ enum APIError:Error{
     case notFoundError
     case serviceError
     case generalResponseError
-    case responseError
 }

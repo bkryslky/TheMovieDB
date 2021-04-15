@@ -37,7 +37,6 @@ class EndpointImp: Endpoint {
         method.asURLRequest().perform { data in
             completionHandler(data)
         }
-        print(method.asURLRequest().urlRequest)
     }
     
     func getSimilarMovies(movie id: Int, completionHandler: @escaping (Result<BaseResponse<[Movie]>, APIError>) -> Void) {

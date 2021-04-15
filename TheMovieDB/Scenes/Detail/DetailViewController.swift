@@ -9,27 +9,33 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    //MARK: Outlets
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieDetailLabel: UILabel!
     @IBOutlet weak var movieDateLabel: UILabel!
     @IBOutlet weak var movieRateLabel: UILabel!
-    
-    private let star = "⭐️"
     @IBOutlet weak var similarCollectionView: UICollectionView!
     
+    //MARK: Variables
+    private let star = "⭐️"
     var presenter:DetailViewToPresenter?
     var movie:Movie!
     private var similarMovies = [Movie]()
+    
+    //MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         presenter?.startGettingDetails(movieId:movie.id) 
     }
     
+    //MARK: Actions
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated:true)
     }
+    
+    //MARK: -SETUP COMPONENTS-
     private func setupViewDetail(detail:MovieDetail){
         if let imageUrlString =  detail.posterPath{
            let imageURL = URL(string: Constants.API.ImageBaseURL + imageUrlString)
@@ -62,6 +68,9 @@ class DetailViewController: UIViewController {
     
 
 }
+
+
+                    //MARK: -EXTENSIONS-
 
 extension DetailViewController:DetailPresenterToView{
    

@@ -9,17 +9,19 @@ import UIKit
 
 class ListViewController: UIViewController {
 
+    //MARK: Outlets
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     @IBOutlet weak var upComingTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
+    //MARK: Variables
     var presenter:ListViewToPresenter?
     private var nowPlayingMovies = [Movie]()
     private var upComingMovies = [Movie]()
     
     
+    //MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,7 @@ class ListViewController: UIViewController {
 
     }
     
+    //MARK: -SETUP COMPONENTS-
     private func setupSearchBar(){
         searchBar.placeholder = "Search"
         searchBar.delegate = self
@@ -64,7 +67,7 @@ class ListViewController: UIViewController {
         
     }
     
-
+    //MARK: Actions
     @IBAction func pageChanged(_ sender: UIPageControl) {
         self.nowPlayingCollectionView.scrollToItem(at: IndexPath(row:sender.currentPage, section: 0), at:.init(), animated: true)
 
@@ -73,6 +76,7 @@ class ListViewController: UIViewController {
 
 }
 
+                //MARK: -EXTENSIONS-
 extension ListViewController:ListPresenterToView{
     func displayNowPlayings(movies: [Movie]) {
         self.nowPlayingMovies = movies

@@ -42,7 +42,7 @@ extension DataRequest {
                 case 502 :
                     return .failure(APIError.serviceError)
                 default :
-                    return .failure(APIError.responseError)
+                    return .failure(APIError.generalResponseError)
                 }
             }
         }

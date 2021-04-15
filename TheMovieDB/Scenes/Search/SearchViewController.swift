@@ -9,19 +9,22 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    //MARK: Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
+    //MARK: Variables
     var presenter:SearchViewToPresenter?
     private var searchMovies = [Movie]()
     
-    
+    //MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
         setupTableView()
     }
     
+    //MARK: -SETUP COMPONENTS-
     private func setupSearchBar(){
         searchBar.placeholder = "Search"
         searchBar.delegate = self
@@ -38,6 +41,8 @@ class SearchViewController: UIViewController {
     }
 
 }
+
+            //MARK: -EXTENSIONS-
 extension SearchViewController:SearchPresenterToView{
     func displayMovies(movies: [Movie]) {
         self.searchMovies = movies
