@@ -1,2 +1,5 @@
 # TheMovieDB
-# I will update ReadMe file later.
+# App Contents: Movie List,Search,Detail.
+# Architecture: VIPER
+# Package Manager: Swift Package Manager
+# Third Parties: Alamofire,Kingfisher
